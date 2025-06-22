@@ -1,6 +1,16 @@
 import React, { useContext } from 'react'
 import './Main.css'
 import { Context } from '../../Context/Context';
+import user from "../../assets/user_icon.png"
+import compass from "../../assets/compass_icon.png"
+import bulb from "../../assets/bulb_icon.png"
+import message from "../../assets/message_icon.png"
+import code from "../../assets/code_icon.png"
+import gemini from "../../assets/gemini_icon.png"
+import gallery from "../../assets/gallery_icon.png"
+import mic from "../../assets/mic_icon.png"
+import send from "../../assets/send_icon.png"
+
 
 function Main() {
   const { onsent,recentPrompt,showResult,loading,resultData,input,setInput} = useContext(Context);
@@ -8,7 +18,7 @@ function Main() {
     <div className='main'>
       <div className='nav'>
         <p>Gemini</p>
-        <img src="./img/user_icon.png" alt="profile picture" />
+        <img src={user} alt="profile picture" />
       </div>
       <div className="main-container">
         {!showResult?(<><div className="greet">
@@ -18,19 +28,19 @@ function Main() {
         <div className="cards">
   <div className="card">
     <p>Suggest beautiful places to see on an upcoming road trip</p>
-    <img src="./img/compass_icon.png" alt="" />
+    <img src={compass} alt="compass" />
   </div>
   <div className="card">
     <p>Briefly summarize this concept: urban planning</p>
-    <img src="./img/bulb_icon.png" alt="" />
+    <img src={bulb} alt="bulb" />
   </div>
   <div className="card">
     <p>Brainstorm team bonding activities for our work retreat</p>
-    <img src="./img/message_icon.png"alt="" />
+    <img src={message} alt="message" />
   </div>
   <div className="card">
     <p>Improve the readability of the following code</p>
-    <img src="./img/code_icon.png" alt="" />
+    <img src={code} alt="code" />
   </div>
   {/* <div>
       <button onClick={() => onsent("What is React JS?")}>
@@ -39,11 +49,11 @@ function Main() {
     </div> */}
 </div></>):(<div className='title'>
   <div className="result-title">
-    <img src="./img/user_icon.png" alt="user" />
+    <img src={user} alt="user" />
     <p>{recentPrompt}</p>
   </div>
   <div className="result-data">
-    <img src="./img/gemini_icon.png" alt="gemini" />
+    <img src={gemini} alt="gemini" />
     {loading?(<div className='loader'>
       <hr />
       <hr />
@@ -55,9 +65,9 @@ function Main() {
   <div className="search-box">
     <input onChange={(e)=>setInput(e.currentTarget.value)} value={input} type="text" placeholder='Enter a Prompt Here' />
     <div>
-      <img src="./img/gallery_icon.png" alt="" />
-      <img src="./img/mic_icon.png" alt="" />
-      {input?<img onClick={()=>onsent()} src="./img/send_icon.png" alt="" />:null}
+      <img src={gallery} alt="gallery" />
+      <img src={mic} alt="mic" />
+      {input?<img onClick={()=>onsent()} src={send} alt="send" />:null}
       
     </div>
     
